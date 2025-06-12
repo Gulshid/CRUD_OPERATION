@@ -1,4 +1,4 @@
-// import 'package:crud_operation/Routes/RoutesName.dart';
+import 'package:crud_operation/Routes/RoutesName.dart';
 import 'package:flutter/material.dart';
 
 class SplashProvider with ChangeNotifier {
@@ -11,17 +11,17 @@ class SplashProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  //function for splash screen set for time
-  // void Splash(BuildContext context) {
-  //   Future.delayed(Duration(seconds: 5), () {
-  //     Navigator.pushReplacementNamed(context, Routesname.signup);
-  //   });
-  // }
+  // function for splash screen set for time
+  void Splash(BuildContext context) {
+    Future.delayed(Duration(seconds: 5), () {
+      Navigator.pushReplacementNamed(context, Routesname.signup);
+    });
+  }
 
   //function for set all the data
   void setAllData(BuildContext context) {
     setLoading(true);
-    // Splash(context);
+    Splash(context);
     setLoading(false);
   }
 }
