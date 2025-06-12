@@ -1,5 +1,6 @@
 import 'package:crud_operation/Routes/Routes.dart';
 import 'package:crud_operation/Routes/RoutesName.dart';
+import 'package:crud_operation/View_Model/Sign_provider.dart';
 import 'package:crud_operation/View_Model/Splash_provider.dart';
 import 'package:crud_operation/View_Model/login_provider.dart';
 import 'package:crud_operation/firebase_options.dart';
@@ -30,6 +31,8 @@ class MyApp extends StatelessWidget {
           providers: [
             ChangeNotifierProvider(create: (_) => SplashProvider()),
             ChangeNotifierProvider(create: (_) => LoginProvider()),
+            ChangeNotifierProvider(create: (_) => SignProvider()),
+
           ],
 
           child: Builder(
@@ -47,7 +50,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
 
-                initialRoute: Routesname.splash,
+                initialRoute: Routesname.signup,
                 onGenerateRoute: Routes.generateRoute,
               );
             },
