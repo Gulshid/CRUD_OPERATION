@@ -1,4 +1,10 @@
+import 'package:crud_operation/Routes/RoutesName.dart';
+import 'package:crud_operation/View_Model/login_provider.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});
@@ -10,10 +16,254 @@ class LoginView extends StatefulWidget {
 class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
+    final login_provider = Provider.of<LoginProvider>(context);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login'),
-        centerTitle: true,
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            title: Text(
+              'Login ',
+              style: GoogleFonts.aBeeZee(
+                fontSize: 30.sp,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            centerTitle: true,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(17.r),
+                topRight: Radius.circular(17.r),
+                bottomLeft: Radius.circular(17.r),
+                bottomRight: Radius.circular(17.r),
+              ),
+            ),
+            backgroundColor: Colors.white,
+            floating: true,
+            pinned: true,
+
+            expandedHeight: 150.h,
+            flexibleSpace: LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(17.r),
+                    topRight: Radius.circular(17.r),
+                    bottomLeft: Radius.circular(17.r),
+                    bottomRight: Radius.circular(17.r),
+                  ),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [Colors.indigo, Colors.purple, Colors.cyan],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ),
+                    ),
+                    child: FlexibleSpaceBar(
+                      background: Column(
+                        children: [
+                          SizedBox(height: 100.h),
+                          Text(
+                            'Welcome to Login',
+                            style: GoogleFonts.abel(
+                              color: Colors.orange,
+                              fontSize: 30.sp,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+
+          SliverToBoxAdapter(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.indigo, Colors.purple, Colors.cyan],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(17.r),
+                  topRight: Radius.circular(17.r),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 50.h),
+                    Text(
+                      'Sign Up Now',
+                      style: GoogleFonts.aBeeZee(
+                        color: Colors.white,
+                        fontSize: 30.sp,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    SizedBox(height: 50.h),
+                    TextFormField(
+                      controller: login_provider.emailController,
+                      style: GoogleFonts.aBeeZee(
+                        color: Colors.black,
+                        fontSize: 20.sp,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: 'Email',
+                        labelStyle: GoogleFonts.aBeeZee(
+                          color: Colors.black,
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        filled: true,
+                        prefixIcon: Icon(Icons.email, color: Colors.indigo),
+                        hintText: 'Enter your email',
+                        hintStyle: GoogleFonts.aBeeZee(
+                          color: Colors.grey,
+                          fontSize: 20.sp,
+                        ),
+                        fillColor: Colors.white,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.r),
+                          borderSide: BorderSide(
+                            color: Colors.black,
+                            width: 3.w,
+                          ),
+                        ),
+
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.r),
+                          borderSide: BorderSide(
+                            color: Colors.black,
+                            width: 3.w,
+                          ),
+                        ),
+
+                        disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.r),
+                          borderSide: BorderSide(
+                            color: Colors.black,
+                            width: 3.w,
+                          ),
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(height: 20.h),
+                    TextFormField(
+                      controller: login_provider.passwordController,
+                      style: GoogleFonts.aBeeZee(
+                        color: Colors.black,
+                        fontSize: 20.sp,
+                      ),
+                      decoration: InputDecoration(
+                        labelText: 'Password',
+                        labelStyle: GoogleFonts.aBeeZee(
+                          color: Colors.black,
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        filled: true,
+                        prefixIcon: Icon(
+                          Icons.remove_red_eye,
+                          color: Colors.indigo,
+                        ),
+                        hintText: 'Enter your password',
+                        hintStyle: GoogleFonts.aBeeZee(
+                          color: Colors.grey,
+                          fontSize: 20.sp,
+                        ),
+                        fillColor: Colors.white,
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.r),
+                          borderSide: BorderSide(
+                            color: Colors.black,
+                            width: 3.w,
+                          ),
+                        ),
+
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.r),
+                          borderSide: BorderSide(
+                            color: Colors.black,
+                            width: 3.w,
+                          ),
+                        ),
+
+                        disabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16.r),
+                          borderSide: BorderSide(
+                            color: Colors.black,
+                            width: 3.w,
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 20.h),
+
+                    ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.deepPurple,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(16.r),
+                        ),
+                      ),
+                      onPressed: () async {
+                        await login_provider.login(context);
+                      },
+                      child: Text(
+                        'Login Now',
+                        style: GoogleFonts.aBeeZee(
+                          color: Colors.white,
+                          fontSize: 20.sp,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+
+                    SizedBox(height: 20.h),
+
+                    Text.rich(
+                      TextSpan(
+                        text: 'Dont Have an account?',
+                        style: GoogleFonts.aBeeZee(
+                          color: Colors.white,
+                          fontSize: 17.sp,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: 'Sign Up',
+                            style: GoogleFonts.aBeeZee(
+                              color: Colors.lightGreen,
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                            recognizer:
+                                TapGestureRecognizer()
+                                  ..onTap = () {
+                                    Navigator.pushNamed(
+                                      context,
+                                      Routesname.signup,
+                                    );
+                                  },
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    SizedBox(height: 150.h),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

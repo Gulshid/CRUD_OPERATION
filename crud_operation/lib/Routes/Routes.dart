@@ -1,4 +1,5 @@
 import 'package:crud_operation/Routes/RoutesName.dart';
+import 'package:crud_operation/view_/home_view.dart';
 import 'package:crud_operation/view_/login_view.dart';
 import 'package:crud_operation/view_/signup_view.dart';
 import 'package:crud_operation/view_/splash_view.dart';
@@ -14,7 +15,7 @@ class Routes {
             builder: (BuildContext context) => SplashView(),
           );
         }
-      
+
       case Routesname.login:
         {
           return MaterialPageRoute(
@@ -29,15 +30,22 @@ class Routes {
           );
         }
 
+      case Routesname.home:
+        {
+          return MaterialPageRoute(
+            builder: (BuildContext context) => HomeView(),
+          );
+        }
+
       default:
-      {
-        return MaterialPageRoute(
-            builder: (_) => const Scaffold(
-                  body: Center(
-                    child: Text('No Route Defined'),
-                  ),
-                ));
-      }
+        {
+          return MaterialPageRoute(
+            builder:
+                (_) => const Scaffold(
+                  body: Center(child: Text('No Route Defined')),
+                ),
+          );
+        }
     }
   }
 }

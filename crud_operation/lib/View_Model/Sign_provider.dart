@@ -36,7 +36,7 @@ class SignProvider with ChangeNotifier {
         message: "Error During Sign up ",
         icon: Icon(Icons.error, color: Colors.white),
         duration: Duration(seconds: 3),
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.red,
         margin: EdgeInsets.all(8),
         borderRadius: BorderRadius.circular(8),
         flushbarPosition: FlushbarPosition.TOP, 
