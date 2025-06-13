@@ -18,6 +18,7 @@ class _LoginViewState extends State<LoginView> {
   Widget build(BuildContext context) {
     final login_provider = Provider.of<LoginProvider>(context);
     return Scaffold(
+      backgroundColor: Colors.deepPurpleAccent,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -100,7 +101,7 @@ class _LoginViewState extends State<LoginView> {
                   children: [
                     SizedBox(height: 50.h),
                     Text(
-                      'Sign Up Now',
+                      'Login Now',
                       style: GoogleFonts.aBeeZee(
                         color: Colors.white,
                         fontSize: 30.sp,

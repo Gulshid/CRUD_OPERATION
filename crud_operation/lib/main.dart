@@ -2,6 +2,7 @@ import 'package:crud_operation/Routes/Routes.dart';
 import 'package:crud_operation/Routes/RoutesName.dart';
 import 'package:crud_operation/View_Model/Sign_provider.dart';
 import 'package:crud_operation/View_Model/Splash_provider.dart';
+import 'package:crud_operation/View_Model/crud_provider.dart';
 import 'package:crud_operation/View_Model/login_provider.dart';
 import 'package:crud_operation/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -32,6 +33,8 @@ class MyApp extends StatelessWidget {
             ChangeNotifierProvider(create: (_) => SplashProvider()),
             ChangeNotifierProvider(create: (_) => LoginProvider()),
             ChangeNotifierProvider(create: (_) => SignProvider()),
+            ChangeNotifierProvider(create: (_) => CrudProvider()),
+
 
           ],
 

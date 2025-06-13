@@ -16,7 +16,7 @@ class LoginProvider with ChangeNotifier {
 
     try {
       UserCredential userid = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
+          .signInWithEmailAndPassword(
             email: emailController.text,
             password: passwordController.text,
           );
