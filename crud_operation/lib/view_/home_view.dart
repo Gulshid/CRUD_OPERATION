@@ -41,7 +41,7 @@ class _HomeViewState extends State<HomeView> {
                     children: [
                       IconButton(
                         onPressed: () {
-                          crud_provider.openDialoge(context, docid: docId);
+                          crud_provider.openDialoge(context, docid: docId); 
                         },
                         icon: Icon(Icons.edit, color: Colors.blue, size: 20.sp),
                       ),
