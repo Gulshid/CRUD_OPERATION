@@ -16,56 +16,80 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     final crud_provider = Provider.of<CrudProvider>(context);
     return Scaffold(
-      backgroundColor: Colors.deepPurpleAccent,
-      body: StreamBuilder<QuerySnapshot>(
-        stream: crud_provider.getnote(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            List notelist = snapshot.data!.docs;
-            return ListView.builder(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        title: Text('Crud APP'),
+        centerTitle: true,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(17.r),
+          bottomRight: Radius.circular(17.r))),
+          scrolledUnderElevation:2.0 ,
+
+          toolbarHeight: 80.h,
+      ),
+        body:  StreamBuilder<QuerySnapshot>(
+              stream: crud_provider.getnote(context),
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  List notelist = snapshot.data!.docs;
+                  return ListView.builder(
               itemCount: notelist.length,
               itemBuilder: (context, index) {
                 DocumentSnapshot document = notelist[index];
                 String docId = document.id;
-
+            
                 Map<String, dynamic> data =
                     document.data() as Map<String, dynamic>;
-
-                String noteText = data['note'];
-
-                return ListTile(
-                  title: Text(noteText, style: TextStyle(color: Colors.black)),
-
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        onPressed: () {
-                          crud_provider.openDialoge(context, docid: docId); 
-                        },
-                        icon: Icon(Icons.edit, color: Colors.blue, size: 20.sp),
+            
+                String noteText = data['note'] ?? 'no notes';
+            
+                return Card(
+                  // ignore: deprecated_member_use
+                  color: Colors.blueGrey.withOpacity(0.6),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: ListTile(
+                      title: Text(noteText, style: TextStyle(color: Colors.black)),
+                    
+                      trailing: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              crud_provider.openDialoge(context, docid: docId); 
+                            },
+                            icon: Icon(Icons.edit, color: Colors.blue, size: 25.sp),
+                          ),
+                    
+                          IconButton(
+                            onPressed: () {
+                              crud_provider.deleteNote(docId, context);
+                            },
+                            icon: Icon(
+                              Icons.delete,
+                              color: Colors.red,
+                              size: 25.sp,
+                            ),
+                          ),
+                    
+                        ],
                       ),
-
-                      IconButton(
-                        onPressed: () {
-                          crud_provider.deleteNote(docId);
-                        },
-                        icon: Icon(
-                          Icons.delete,
-                          color: Colors.red,
-                          size: 20.sp,
-                        ),
-                      ),
-                    ],
+                    
+                    
+                    ),
                   ),
                 );
+                
               },
-            );
-          } else {
-            return Center(child: Text('no notes data'));
-          }
-        },
-      ),
+              );
+            } else {
+              return Center(child: Text('no notes data'));
+            }
+          },
+        ),
+
+        
+        
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {

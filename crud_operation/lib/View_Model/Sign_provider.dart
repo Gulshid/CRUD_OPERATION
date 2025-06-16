@@ -20,7 +20,7 @@ class SignProvider with ChangeNotifier {
       );
 
       Flushbar(
-        message: "Data Created Successfully ",
+        message: "Account Created Successfully ",
         icon: Icon(Icons.check_circle, color: Colors.white),
         duration: Duration(seconds: 3),
         backgroundColor: Colors.blue,
