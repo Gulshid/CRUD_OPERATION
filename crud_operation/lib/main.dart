@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
 
-                initialRoute: Routesname.signup,
+                initialRoute: Routesname.home,
                 onGenerateRoute: Routes.generateRoute,
               );
             },

@@ -1,7 +1,9 @@
+import 'package:another_flushbar/flushbar.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crud_operation/View_Model/crud_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
@@ -18,11 +20,11 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('Crud APP'),
+        title: Text('Crud APP', style: GoogleFonts.abel(color: Colors.white, fontSize: 30.sp),),
         centerTitle: true,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(17.r),
-          bottomRight: Radius.circular(17.r))),
+          bottomLeft: Radius.circular(15.r),
+          bottomRight: Radius.circular(15.r))),
           scrolledUnderElevation:2.0 ,
 
           toolbarHeight: 80.h,
@@ -56,7 +58,20 @@ class _HomeViewState extends State<HomeView> {
                         children: [
                           IconButton(
                             onPressed: () {
-                              crud_provider.openDialoge(context, docid: docId); 
+                              crud_provider.openDialoge(context, docid: docId, 
+                              onupdated: (){
+                                Flushbar(
+                              message: "Data Updated Sucessfully",
+                              icon: Icon(Icons.check_circle, color: Colors.white),
+                              duration: Duration(seconds: 3),
+                              backgroundColor: Colors.blue,
+                              margin: EdgeInsets.all(8),
+                              borderRadius: BorderRadius.circular(8),
+                              flushbarPosition: FlushbarPosition.TOP,
+                            ).show(context);
+                              }
+                              
+                              ); 
                             },
                             icon: Icon(Icons.edit, color: Colors.blue, size: 25.sp),
                           ),
@@ -64,6 +79,15 @@ class _HomeViewState extends State<HomeView> {
                           IconButton(
                             onPressed: () {
                               crud_provider.deleteNote(docId, context);
+                              Flushbar(
+                              message: "Data Deleted Successfully",
+                              icon: Icon(Icons.check_circle, color: Colors.white),
+                              duration: Duration(seconds: 3),
+                              backgroundColor: Colors.blue,
+                              margin: EdgeInsets.all(8),
+                              borderRadius: BorderRadius.circular(8),
+                              flushbarPosition: FlushbarPosition.TOP,
+                            ).show(context);
                             },
                             icon: Icon(
                               Icons.delete,
@@ -94,6 +118,16 @@ class _HomeViewState extends State<HomeView> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           crud_provider.openDialoge(context);
+      Flushbar(
+      message: "Dialoge is Open Successfully",
+      icon: Icon(Icons.check_circle, color: Colors.white),
+      duration: Duration(seconds: 3),
+      backgroundColor: Colors.blue,
+      margin: EdgeInsets.all(8),
+      borderRadius: BorderRadius.circular(8),
+      flushbarPosition: FlushbarPosition.TOP,
+    ).show(context);
+
         },
         child: Icon(Icons.add),
       ),
