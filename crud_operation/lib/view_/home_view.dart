@@ -18,9 +18,10 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     final crud_provider = Provider.of<CrudProvider>(context);
     return Scaffold(
-      backgroundColor: Colors.white,
+      // ignore: deprecated_member_use
+      backgroundColor: Colors.lime,
       appBar: AppBar(
-        title: Text('Crud APP', style: GoogleFonts.abel(color: Colors.white, fontSize: 30.sp),),
+        title: Text('CRUD APP', style: GoogleFonts.abel(color: Colors.white, fontSize: 30.sp),),
         centerTitle: true,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(15.r),
@@ -47,11 +48,11 @@ class _HomeViewState extends State<HomeView> {
             
                 return Card(
                   // ignore: deprecated_member_use
-                  color: Colors.blueGrey.withOpacity(0.6),
+                  color: Colors.teal.withOpacity(0.4),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: ListTile(
-                      title: Text(noteText, style: TextStyle(color: Colors.black)),
+                      title: Text(noteText, style: TextStyle(color: Colors.white, fontSize: 18.sp, fontWeight: FontWeight.bold)),
                     
                       trailing: Row(
                         mainAxisSize: MainAxisSize.min,
