@@ -2,6 +2,7 @@ import 'package:crud_operation/Routes/Routes.dart';
 import 'package:crud_operation/Routes/RoutesName.dart';
 import 'package:crud_operation/View_Model/Sign_provider.dart';
 import 'package:crud_operation/View_Model/Splash_provider.dart';
+import 'package:crud_operation/View_Model/Storage_provider.dart';
 import 'package:crud_operation/View_Model/crud_provider.dart';
 import 'package:crud_operation/View_Model/login_provider.dart';
 import 'package:crud_operation/firebase_options.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
             ChangeNotifierProvider(create: (_) => LoginProvider()),
             ChangeNotifierProvider(create: (_) => SignProvider()),
             ChangeNotifierProvider(create: (_) => CrudProvider()),
+            ChangeNotifierProvider(create: (_) => StorageProvider()),
 
 
           ],
@@ -53,7 +55,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
 
-                initialRoute: Routesname.splash,
+                initialRoute: Routesname.upload,
                 onGenerateRoute: Routes.generateRoute,
               );
             },

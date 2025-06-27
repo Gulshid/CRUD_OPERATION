@@ -3,8 +3,8 @@ import 'package:crud_operation/view_/home_view.dart';
 import 'package:crud_operation/view_/login_view.dart';
 import 'package:crud_operation/view_/signup_view.dart';
 import 'package:crud_operation/view_/splash_view.dart';
+import 'package:crud_operation/view_/upload_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class Routes {
   static Route<dynamic> generateRoute(RouteSettings firebase) {
@@ -34,6 +34,13 @@ class Routes {
         {
           return MaterialPageRoute(
             builder: (BuildContext context) => HomeView(),
+          );
+        }
+
+      case Routesname.upload:
+        {
+          return MaterialPageRoute(
+            builder: (BuildContext context) => UploadScreen(),
           );
         }
 
