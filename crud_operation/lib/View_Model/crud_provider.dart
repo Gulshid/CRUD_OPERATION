@@ -18,6 +18,12 @@ class CrudProvider with ChangeNotifier {
     String? docid,
     VoidCallback? onupdated,
   }) async {
+    if (docid != null) {
+    final doc = await crud.doc(docid).get();
+    textController.text = doc['note'] ?? '';
+  } else {
+    textController.clear();
+  }
     showDialog(
       context: context,
       builder: (context) {

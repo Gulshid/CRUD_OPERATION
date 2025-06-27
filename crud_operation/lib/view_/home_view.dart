@@ -19,7 +19,7 @@ class _HomeViewState extends State<HomeView> {
     final crud_provider = Provider.of<CrudProvider>(context);
     return Scaffold(
       // ignore: deprecated_member_use
-      backgroundColor: Colors.lime,
+      backgroundColor: Colors.blueGrey,
       appBar: AppBar(
         title: Text('CRUD APP', style: GoogleFonts.abel(color: Colors.white, fontSize: 30.sp),),
         centerTitle: true,

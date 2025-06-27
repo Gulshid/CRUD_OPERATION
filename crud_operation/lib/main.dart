@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
 
-                initialRoute: Routesname.upload,
+                initialRoute: Routesname.splash,
                 onGenerateRoute: Routes.generateRoute,
               );
             },

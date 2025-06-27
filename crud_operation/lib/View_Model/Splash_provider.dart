@@ -1,4 +1,5 @@
 import 'package:crud_operation/Routes/RoutesName.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SplashProvider with ChangeNotifier {
@@ -14,7 +15,13 @@ class SplashProvider with ChangeNotifier {
   // function for splash screen set for time
   void Splash(BuildContext context) {
     Future.delayed(Duration(seconds: 5), () {
-      Navigator.pushReplacementNamed(context, Routesname.signup);
+      final user = FirebaseAuth.instance.currentUser;
+      if(user!=null){
+        Navigator.pushReplacementNamed(context, Routesname.home);
+      }
+      else{
+        Navigator.pushReplacementNamed(context, Routesname.login);
+      }
     });
   }
 
