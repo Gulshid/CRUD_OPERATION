@@ -55,7 +55,7 @@ class MyApp extends StatelessWidget {
                   ),
                 ),
 
-                initialRoute: Routesname.splash,
+                initialRoute: Routesname.login,
                 onGenerateRoute: Routes.generateRoute,
               );
             },
