@@ -28,6 +28,7 @@ class CrudProvider with ChangeNotifier {
       context: context,
       builder: (context) {
         return AlertDialog(
+          backgroundColor: Colors.teal,
           title: Center(
             child: Text(
               'Add Notes',
@@ -44,7 +45,7 @@ class CrudProvider with ChangeNotifier {
               ),
               hintText: 'Add Notes',
               hintStyle: GoogleFonts.aBeeZee(
-                color: Colors.grey,
+                color: Colors.white,
                 fontSize: 20.sp,
               ),
               enabledBorder: OutlineInputBorder(
@@ -59,6 +60,9 @@ class CrudProvider with ChangeNotifier {
 
           actions: [
             ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.tealAccent
+              ),
               onPressed: () async {
                 if (docid == null) {
                   createNote(textController.text, context);
@@ -77,7 +81,7 @@ class CrudProvider with ChangeNotifier {
                 child: Text(docid==null?
                   'Add':'Update',
                   style: GoogleFonts.aBeeZee(
-                    color: Colors.blue,
+                    color: Colors.black,
                     fontSize: 22.sp,
                   ),
                 ),

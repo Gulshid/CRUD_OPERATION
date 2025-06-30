@@ -117,6 +117,7 @@ class _HomeViewState extends State<HomeView> {
         
 
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.teal,
         onPressed: () {
           crud_provider.openDialoge(context);
       Flushbar(
@@ -130,7 +131,7 @@ class _HomeViewState extends State<HomeView> {
     ).show(context);
 
         },
-        child: Icon(Icons.add),
+        child: Icon(Icons.add, color: Colors.white,size: 30.sp,),
       ),
     );
   }
